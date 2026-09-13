@@ -118,7 +118,7 @@ async def step(search, models):
                 state = await one(conn, "SELECT * FROM catalog_state WHERE id=1 FOR UPDATE")
                 if cursor == state["sequence"]:
                     await search.refresh(name)
-                    # Указатель переключается в PostgreSQL. Запросы уже выбравшие старый индекс могут спокойно завершиться.
+                    # Указатель переключается в PostgreSQL. Запросы, уже выбравшие старый индекс, могут спокойно завершиться.
                     await execute(
                         conn, "UPDATE generations SET status='retired' WHERE status='active'"
                     )

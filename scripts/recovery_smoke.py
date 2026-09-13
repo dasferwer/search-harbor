@@ -25,7 +25,7 @@ def compose(*args, delay="0"):
 
 
 def indexed(name, sku):
-    # Читаем документ через realtime GET: refresh ещё не обязан был сделать его доступным поиску.
+    # Читаем документ через realtime GET: до refresh он ещё может быть не виден в поиске.
     code = (
         "import json,urllib.request; print(urllib.request.urlopen('http://opensearch:9200/"
         + name

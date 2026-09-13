@@ -1,4 +1,4 @@
-name: checks
+name: Проверки проекта
 on: [push, pull_request]
 jobs:
   verify:
@@ -7,14 +7,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
-      - run: uv sync --extra dev --frozen
-      - run: uv run ruff check . && uv run ruff format --check .
-      - run: make test
-      - run: docker compose --profile test stop test-db test-search
-      - run: make up
-      - run: make smoke
-      - run: make recovery
-      - run: make evaluate
+      - name: Установка зависимостей
+        run: uv sync --extra dev --frozen
+      - name: Проверка стиля кода
+        run: uv run ruff check . && uv run ruff format --check .
+      - name: Запуск тестов
+        run: make test
+      - name: Остановка тестовых сервисов
+        run: docker compose --profile test stop test-db test-search
+      - name: Запуск приложения
+        run: make up
+      - name: Проверка API и моделей
+        run: make smoke
+      - name: Проверка восстановления после сбоев
+        run: make recovery
+      - name: Сравнение качества поиска
+        run: make evaluate
       - uses: actions/upload-artifact@v4
         with:
           name: search-evaluation
