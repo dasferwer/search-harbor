@@ -1,0 +1,5957 @@
+{
+  "started_at": "2026-09-13T12:45:24.587882+00:00",
+  "finished_at": "2026-09-13T12:45:39.402852+00:00",
+  "base_url": "http://localhost:8220",
+  "benchmark": "Authored synthetic English catalog; not an independent human-labelled benchmark",
+  "checksums": {
+    "catalog_source_sha256": "77e526fe1299b0ab4c7892d22587bed9d0a0e7f3ffd92915db9e4c01fff7fc7a",
+    "queries_sha256": "36570b57cbcd15783e9dc93f770e48962d3d8939f8475c98167a289ef6683df0",
+    "seed_code_sha256": "a467e76ca239669eab20d18a39151dd1cfbb0d130ed8d50c01257bcea965ee0d",
+    "evaluation_code_sha256": "221fc236cb75aa2105fcbe48a0f9b3c25a96ad502e5a01cd56dbc56b4f7fc842"
+  },
+  "catalog_source_family_count": 30,
+  "corpus_note": "Catalog checksum covers source family definitions, not a live database export. Seed creates near-identical variants; all relevance is measured per family.",
+  "ready": {
+    "status": "ready",
+    "index": "catalog-b86bef2994644a66b421d500105e50e2"
+  },
+  "stable_snapshot": {
+    "index": "catalog-b86bef2994644a66b421d500105e50e2",
+    "indexed_sequence": 3008,
+    "catalog_sequence": 3008
+  },
+  "protocol": {
+    "cutoff": 5,
+    "distinct_families": true,
+    "repeats": 3,
+    "warmup_requests_per_mode": 2,
+    "warmup_included": false,
+    "concurrency": 1,
+    "selection_order": [
+      "dev NDCG@5",
+      "dev MRR",
+      "dev Recall@5",
+      "fixed lexical/semantic/hybrid/rerank order"
+    ],
+    "mrr_cutoff": 5,
+    "latency": "Sequential warmed HTTP wall time including server and transport, linear interpolated percentiles; query repetitions may benefit from caches"
+  },
+  "recommended_mode_from_dev": "semantic",
+  "test_metrics_for_dev_selected_mode": {
+    "recall_at_5": 1.0,
+    "ndcg_at_5": 1.0,
+    "mrr": 1.0,
+    "p50_ms": 6.947395497263642,
+    "p95_ms": 12.507227300011438,
+    "query_count": 24,
+    "request_count": 72
+  },
+  "splits": {
+    "dev": {
+      "kinds": {
+        "lexical": 3,
+        "typo": 3,
+        "semantic": 6
+      },
+      "summary": {
+        "lexical": {
+          "recall_at_5": 0.9166666666666666,
+          "ndcg_at_5": 0.8771761331423906,
+          "mrr": 0.9166666666666666,
+          "p50_ms": 9.03945800018846,
+          "p95_ms": 10.62086475212709,
+          "query_count": 12,
+          "request_count": 36
+        },
+        "semantic": {
+          "recall_at_5": 1.0,
+          "ndcg_at_5": 0.9692441461309548,
+          "mrr": 0.9583333333333334,
+          "p50_ms": 7.6853959981235676,
+          "p95_ms": 11.91519775420602,
+          "query_count": 12,
+          "request_count": 36
+        },
+        "hybrid": {
+          "recall_at_5": 0.9166666666666666,
+          "ndcg_at_5": 0.8924841451164055,
+          "mrr": 0.9166666666666666,
+          "p50_ms": 12.508583000453655,
+          "p95_ms": 16.856572497999878,
+          "query_count": 12,
+          "request_count": 36
+        },
+        "rerank": {
+          "recall_at_5": 0.9166666666666666,
+          "ndcg_at_5": 0.9166666666666666,
+          "mrr": 0.9166666666666666,
+          "p50_ms": 96.56389550218591,
+          "p95_ms": 144.07710374689486,
+          "query_count": 12,
+          "request_count": 36
+        }
+      },
+      "queries": [
+        {
+          "id": "dev-01",
+          "query": "noise cancelling headphones",
+          "kind": "lexical",
+          "relevance": {
+            "quiet-headphones": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "quiet-headphones",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "conference-microphone",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "running-earbuds",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "hiking-backpack",
+              "score": 0.015625
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            10.387707996414974,
+            10.367875001975335,
+            9.254292002879083
+          ]
+        },
+        {
+          "id": "dev-01",
+          "query": "noise cancelling headphones",
+          "kind": "lexical",
+          "relevance": {
+            "quiet-headphones": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "quiet-headphones",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "running-earbuds",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.015625
+            },
+            {
+              "family": "conference-microphone",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            8.551459002774209,
+            11.493750003864989,
+            7.38574999559205
+          ]
+        },
+        {
+          "id": "dev-01",
+          "query": "noise cancelling headphones",
+          "kind": "lexical",
+          "relevance": {
+            "quiet-headphones": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "quiet-headphones",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "running-earbuds",
+              "score": 0.03200204813108039
+            },
+            {
+              "family": "conference-microphone",
+              "score": 0.0315136476426799
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.015625
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            14.149125003314111,
+            15.993957997125108,
+            12.478791002649814
+          ]
+        },
+        {
+          "id": "dev-01",
+          "query": "noise cancelling headphones",
+          "kind": "lexical",
+          "relevance": {
+            "quiet-headphones": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "quiet-headphones",
+              "score": 9.030399322509766
+            },
+            {
+              "family": "portable-speaker",
+              "score": -9.496861457824707
+            },
+            {
+              "family": "running-earbuds",
+              "score": -9.573524475097656
+            },
+            {
+              "family": "conference-microphone",
+              "score": -9.946435928344727
+            },
+            {
+              "family": "headlamp",
+              "score": -11.153973579406738
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            99.9915830034297,
+            110.61179100215668,
+            101.2381659966195
+          ]
+        },
+        {
+          "id": "dev-02",
+          "query": "ergonmic keybord",
+          "kind": "typo",
+          "relevance": {
+            "ergonomic-keyboard": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "vertical-mouse",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "conference-microphone",
+              "score": 0.015873015873015872
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            9.907416999340057,
+            9.515334000752773,
+            9.049332998984028
+          ]
+        },
+        {
+          "id": "dev-02",
+          "query": "ergonmic keybord",
+          "kind": "typo",
+          "relevance": {
+            "ergonomic-keyboard": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "vertical-mouse",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "conference-microphone",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.015625
+            },
+            {
+              "family": "standing-desk",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            8.565624993934762,
+            7.8037499988568015,
+            7.193624995124992
+          ]
+        },
+        {
+          "id": "dev-02",
+          "query": "ergonmic keybord",
+          "kind": "typo",
+          "relevance": {
+            "ergonomic-keyboard": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "vertical-mouse",
+              "score": 0.03225806451612903
+            },
+            {
+              "family": "conference-microphone",
+              "score": 0.031746031746031744
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.015625
+            },
+            {
+              "family": "standing-desk",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            13.817291001032572,
+            13.333625000086613,
+            11.660834003123455
+          ]
+        },
+        {
+          "id": "dev-02",
+          "query": "ergonmic keybord",
+          "kind": "typo",
+          "relevance": {
+            "ergonomic-keyboard": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "ergonomic-keyboard",
+              "score": -2.251103162765503
+            },
+            {
+              "family": "vertical-mouse",
+              "score": -7.158924102783203
+            },
+            {
+              "family": "portable-speaker",
+              "score": -11.33265495300293
+            },
+            {
+              "family": "external-ssd",
+              "score": -11.367318153381348
+            },
+            {
+              "family": "power-bank",
+              "score": -11.391661643981934
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            81.10337499965681,
+            81.96345800388372,
+            79.95208299689693
+          ]
+        },
+        {
+          "id": "dev-03",
+          "query": "keep my phone alive on a long trip without an outlet",
+          "kind": "semantic",
+          "relevance": {
+            "power-bank": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "power-bank",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "desk-lamp",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "camping-tent",
+              "score": 0.015625
+            },
+            {
+              "family": "vertical-mouse",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            10.563125004409812,
+            10.169875000428874,
+            8.214749999751803
+          ]
+        },
+        {
+          "id": "dev-03",
+          "query": "keep my phone alive on a long trip without an outlet",
+          "kind": "semantic",
+          "relevance": {
+            "power-bank": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "power-bank",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "camping-tent",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "water-bottle",
+              "score": 0.015625
+            },
+            {
+              "family": "headlamp",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            7.87645899981726,
+            7.364208002400119,
+            6.763874996977393
+          ]
+        },
+        {
+          "id": "dev-03",
+          "query": "keep my phone alive on a long trip without an outlet",
+          "kind": "semantic",
+          "relevance": {
+            "power-bank": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "power-bank",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "camping-tent",
+              "score": 0.03149801587301587
+            },
+            {
+              "family": "water-bottle",
+              "score": 0.030117753623188408
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.030017921146953404
+            },
+            {
+              "family": "quiet-headphones",
+              "score": 0.029211087420042643
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            31.022874994960148,
+            14.046624994080048,
+            11.399624992918689
+          ]
+        },
+        {
+          "id": "dev-03",
+          "query": "keep my phone alive on a long trip without an outlet",
+          "kind": "semantic",
+          "relevance": {
+            "power-bank": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "power-bank",
+              "score": -4.701612949371338
+            },
+            {
+              "family": "quiet-headphones",
+              "score": -9.883904457092285
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": -11.273050308227539
+            },
+            {
+              "family": "portable-speaker",
+              "score": -11.273066520690918
+            },
+            {
+              "family": "camping-tent",
+              "score": -11.288057327270508
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            153.90766599739436,
+            143.90645799721824,
+            140.7268330003717
+          ]
+        },
+        {
+          "id": "dev-04",
+          "query": "air purifer for dust",
+          "kind": "typo",
+          "relevance": {
+            "air-purifier": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "air-purifier",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "robot-vacuum",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "humidifier",
+              "score": 0.015873015873015872
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            8.265666001534555,
+            7.403292001981754,
+            7.223833003081381
+          ]
+        },
+        {
+          "id": "dev-04",
+          "query": "air purifer for dust",
+          "kind": "typo",
+          "relevance": {
+            "air-purifier": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "air-purifier",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "robot-vacuum",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "humidifier",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "water-bottle",
+              "score": 0.015625
+            },
+            {
+              "family": "external-ssd",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            7.545791006123181,
+            7.726291994913481,
+            7.644500001333654
+          ]
+        },
+        {
+          "id": "dev-04",
+          "query": "air purifer for dust",
+          "kind": "typo",
+          "relevance": {
+            "air-purifier": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "air-purifier",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "robot-vacuum",
+              "score": 0.03225806451612903
+            },
+            {
+              "family": "humidifier",
+              "score": 0.031746031746031744
+            },
+            {
+              "family": "water-bottle",
+              "score": 0.015625
+            },
+            {
+              "family": "external-ssd",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            11.238874998525716,
+            10.71583299926715,
+            9.601833000488114
+          ]
+        },
+        {
+          "id": "dev-04",
+          "query": "air purifer for dust",
+          "kind": "typo",
+          "relevance": {
+            "air-purifier": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "air-purifier",
+              "score": 4.757499694824219
+            },
+            {
+              "family": "robot-vacuum",
+              "score": -9.78720474243164
+            },
+            {
+              "family": "humidifier",
+              "score": -10.858078956604004
+            },
+            {
+              "family": "laptop-stand",
+              "score": -11.289779663085938
+            },
+            {
+              "family": "portable-speaker",
+              "score": -11.312314987182617
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            98.0578750022687,
+            88.96341600484448,
+            88.06324999750359
+          ]
+        },
+        {
+          "id": "dev-05",
+          "query": "coffee bean grinder",
+          "kind": "lexical",
+          "relevance": {
+            "coffee-grinder": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "coffee-grinder",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "electric-kettle",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "headlamp",
+              "score": 0.015873015873015872
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            8.213209002860822,
+            8.371083000383805,
+            7.772291995934211
+          ]
+        },
+        {
+          "id": "dev-05",
+          "query": "coffee bean grinder",
+          "kind": "lexical",
+          "relevance": {
+            "coffee-grinder": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "coffee-grinder",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "blender",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "electric-kettle",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "robot-vacuum",
+              "score": 0.015625
+            },
+            {
+              "family": "foam-roller",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            11.067208994063549,
+            8.48737499472918,
+            7.600208999065217
+          ]
+        },
+        {
+          "id": "dev-05",
+          "query": "coffee bean grinder",
+          "kind": "lexical",
+          "relevance": {
+            "coffee-grinder": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "coffee-grinder",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "electric-kettle",
+              "score": 0.03200204813108039
+            },
+            {
+              "family": "headlamp",
+              "score": 0.030158730158730156
+            },
+            {
+              "family": "blender",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "robot-vacuum",
+              "score": 0.015625
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            12.972833996172994,
+            12.360999993688893,
+            10.46012499864446
+          ]
+        },
+        {
+          "id": "dev-05",
+          "query": "coffee bean grinder",
+          "kind": "lexical",
+          "relevance": {
+            "coffee-grinder": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "coffee-grinder",
+              "score": 6.673964500427246
+            },
+            {
+              "family": "electric-kettle",
+              "score": -10.55943489074707
+            },
+            {
+              "family": "portable-speaker",
+              "score": -11.191694259643555
+            },
+            {
+              "family": "foam-roller",
+              "score": -11.196197509765625
+            },
+            {
+              "family": "headlamp",
+              "score": -11.197257995605469
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            79.2719169985503,
+            76.13808400492417,
+            77.46700000279816
+          ]
+        },
+        {
+          "id": "dev-06",
+          "query": "carry supplies on a day in the mountains",
+          "kind": "semantic",
+          "relevance": {
+            "hiking-backpack": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "hiking-backpack",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "coffee-grinder",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "foam-roller",
+              "score": 0.015873015873015872
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            10.794083995278925,
+            10.176457995839883,
+            9.261250001145527
+          ]
+        },
+        {
+          "id": "dev-06",
+          "query": "carry supplies on a day in the mountains",
+          "kind": "semantic",
+          "relevance": {
+            "hiking-backpack": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "hiking-backpack",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "camping-tent",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "headlamp",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "sleeping-bag",
+              "score": 0.015625
+            },
+            {
+              "family": "water-bottle",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            13.254165998660028,
+            7.639208000910003,
+            7.277374999830499
+          ]
+        },
+        {
+          "id": "dev-06",
+          "query": "carry supplies on a day in the mountains",
+          "kind": "semantic",
+          "relevance": {
+            "hiking-backpack": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "hiking-backpack",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "camping-tent",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "coffee-grinder",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "foam-roller",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "headlamp",
+              "score": 0.015873015873015872
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            15.444957993167918,
+            14.029417005076539,
+            11.454625004262198
+          ]
+        },
+        {
+          "id": "dev-06",
+          "query": "carry supplies on a day in the mountains",
+          "kind": "semantic",
+          "relevance": {
+            "hiking-backpack": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "hiking-backpack",
+              "score": 3.0675015449523926
+            },
+            {
+              "family": "sleeping-bag",
+              "score": -10.794178009033203
+            },
+            {
+              "family": "headlamp",
+              "score": -10.847051620483398
+            },
+            {
+              "family": "camping-tent",
+              "score": -11.278913497924805
+            },
+            {
+              "family": "resistance-bands",
+              "score": -11.285741806030273
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            100.78645800240338,
+            98.7593339959858,
+            97.35004100366496
+          ]
+        },
+        {
+          "id": "dev-07",
+          "query": "exercise equipment that fits in a suitcase",
+          "kind": "semantic",
+          "relevance": {
+            "resistance-bands": 3,
+            "yoga-mat": 1
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "yoga-mat",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "headlamp",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "standing-desk",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "resistance-bands",
+              "score": 0.015625
+            },
+            {
+              "family": "foam-roller",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 0.5261135977086879,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            10.813375003635883,
+            9.884042003250215,
+            9.271000002627261
+          ]
+        },
+        {
+          "id": "dev-07",
+          "query": "exercise equipment that fits in a suitcase",
+          "kind": "semantic",
+          "relevance": {
+            "resistance-bands": 3,
+            "yoga-mat": 1
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "resistance-bands",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "yoga-mat",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "laptop-stand",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "foam-roller",
+              "score": 0.015625
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            8.566915996198077,
+            7.023208003374748,
+            7.589125001686625
+          ]
+        },
+        {
+          "id": "dev-07",
+          "query": "exercise equipment that fits in a suitcase",
+          "kind": "semantic",
+          "relevance": {
+            "resistance-bands": 3,
+            "yoga-mat": 1
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "yoga-mat",
+              "score": 0.03252247488101534
+            },
+            {
+              "family": "resistance-bands",
+              "score": 0.032018442622950824
+            },
+            {
+              "family": "foam-roller",
+              "score": 0.031009615384615385
+            },
+            {
+              "family": "running-earbuds",
+              "score": 0.03007688828584351
+            },
+            {
+              "family": "water-bottle",
+              "score": 0.029437229437229435
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 0.7098097413968655,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            19.444416000624187,
+            13.742208000621758,
+            12.82220800203504
+          ]
+        },
+        {
+          "id": "dev-07",
+          "query": "exercise equipment that fits in a suitcase",
+          "kind": "semantic",
+          "relevance": {
+            "resistance-bands": 3,
+            "yoga-mat": 1
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "resistance-bands",
+              "score": -5.637411117553711
+            },
+            {
+              "family": "yoga-mat",
+              "score": -6.781449794769287
+            },
+            {
+              "family": "running-earbuds",
+              "score": -7.6720290184021
+            },
+            {
+              "family": "hiking-backpack",
+              "score": -9.776145935058594
+            },
+            {
+              "family": "foam-roller",
+              "score": -10.198319435119629
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            98.3629159964039,
+            95.51350000401726,
+            95.77775000070687
+          ]
+        },
+        {
+          "id": "dev-08",
+          "query": "take calls and look clear in a dim room",
+          "kind": "semantic",
+          "relevance": {
+            "webcam": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "humidifier",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "air-purifier",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "desk-lamp",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "food-scale",
+              "score": 0.015625
+            },
+            {
+              "family": "conference-microphone",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 0.0,
+            "ndcg_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "latency_ms": [
+            8.368082999368198,
+            7.720708003034815,
+            7.218667000415735
+          ]
+        },
+        {
+          "id": "dev-08",
+          "query": "take calls and look clear in a dim room",
+          "kind": "semantic",
+          "relevance": {
+            "webcam": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "conference-microphone",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "webcam",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "quiet-headphones",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "desk-lamp",
+              "score": 0.015625
+            },
+            {
+              "family": "humidifier",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 0.6309297535714575,
+            "mrr": 0.5
+          },
+          "latency_ms": [
+            7.49362500209827,
+            7.877333999203984,
+            7.017000003543217
+          ]
+        },
+        {
+          "id": "dev-08",
+          "query": "take calls and look clear in a dim room",
+          "kind": "semantic",
+          "relevance": {
+            "webcam": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "conference-microphone",
+              "score": 0.03177805800756621
+            },
+            {
+              "family": "humidifier",
+              "score": 0.03177805800756621
+            },
+            {
+              "family": "desk-lamp",
+              "score": 0.03149801587301587
+            },
+            {
+              "family": "wifi-router",
+              "score": 0.029437229437229435
+            },
+            {
+              "family": "power-bank",
+              "score": 0.028577260665441927
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 0.0,
+            "ndcg_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "latency_ms": [
+            11.62099999783095,
+            10.823374999745283,
+            10.185416998865549
+          ]
+        },
+        {
+          "id": "dev-08",
+          "query": "take calls and look clear in a dim room",
+          "kind": "semantic",
+          "relevance": {
+            "webcam": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "conference-microphone",
+              "score": -11.347881317138672
+            },
+            {
+              "family": "humidifier",
+              "score": -11.425841331481934
+            },
+            {
+              "family": "air-purifier",
+              "score": -11.429384231567383
+            },
+            {
+              "family": "quiet-headphones",
+              "score": -11.430765151977539
+            },
+            {
+              "family": "desk-lamp",
+              "score": -11.436670303344727
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 0.0,
+            "ndcg_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "latency_ms": [
+            144.58904099592473,
+            130.79704200208653,
+            129.20754100196064
+          ]
+        },
+        {
+          "id": "dev-09",
+          "query": "stop the winter room feeling so dry",
+          "kind": "semantic",
+          "relevance": {
+            "humidifier": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "humidifier",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "air-purifier",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "water-bottle",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "wifi-router",
+              "score": 0.015625
+            },
+            {
+              "family": "coffee-grinder",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            9.029583001392893,
+            9.75887500680983,
+            8.699625002918765
+          ]
+        },
+        {
+          "id": "dev-09",
+          "query": "stop the winter room feeling so dry",
+          "kind": "semantic",
+          "relevance": {
+            "humidifier": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "humidifier",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "water-bottle",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "sleeping-bag",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "camping-tent",
+              "score": 0.015625
+            },
+            {
+              "family": "electric-kettle",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            13.179541005229112,
+            7.899374999396969,
+            6.396791999577545
+          ]
+        },
+        {
+          "id": "dev-09",
+          "query": "stop the winter room feeling so dry",
+          "kind": "semantic",
+          "relevance": {
+            "humidifier": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "humidifier",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "water-bottle",
+              "score": 0.03200204813108039
+            },
+            {
+              "family": "air-purifier",
+              "score": 0.03128054740957967
+            },
+            {
+              "family": "electric-kettle",
+              "score": 0.030309988518943745
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.029236022193768675
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            14.022832998307422,
+            10.8282919973135,
+            10.737833006714936
+          ]
+        },
+        {
+          "id": "dev-09",
+          "query": "stop the winter room feeling so dry",
+          "kind": "semantic",
+          "relevance": {
+            "humidifier": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "humidifier",
+              "score": -3.85616397857666
+            },
+            {
+              "family": "sleeping-bag",
+              "score": -11.202299118041992
+            },
+            {
+              "family": "air-purifier",
+              "score": -11.224287033081055
+            },
+            {
+              "family": "water-bottle",
+              "score": -11.245086669921875
+            },
+            {
+              "family": "portable-speaker",
+              "score": -11.251704216003418
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            116.16970800241688,
+            116.13729200325906,
+            111.57908399763983
+          ]
+        },
+        {
+          "id": "dev-10",
+          "query": "two person camping tent",
+          "kind": "lexical",
+          "relevance": {
+            "camping-tent": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "camping-tent",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "blender",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "desk-lamp",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "sleeping-bag",
+              "score": 0.015625
+            },
+            {
+              "family": "headlamp",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            9.143916999164503,
+            9.074790999875404,
+            8.821541996439919
+          ]
+        },
+        {
+          "id": "dev-10",
+          "query": "two person camping tent",
+          "kind": "lexical",
+          "relevance": {
+            "camping-tent": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "camping-tent",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "sleeping-bag",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "hiking-backpack",
+              "score": 0.015625
+            },
+            {
+              "family": "headlamp",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            11.311458998534363,
+            7.171124998421874,
+            7.934374996693805
+          ]
+        },
+        {
+          "id": "dev-10",
+          "query": "two person camping tent",
+          "kind": "lexical",
+          "relevance": {
+            "camping-tent": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "camping-tent",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "sleeping-bag",
+              "score": 0.031754032258064516
+            },
+            {
+              "family": "headlamp",
+              "score": 0.03076923076923077
+            },
+            {
+              "family": "monitor-arm",
+              "score": 0.02964426877470356
+            },
+            {
+              "family": "blender",
+              "score": 0.016129032258064516
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            13.041791993600782,
+            11.068374995375052,
+            12.538374998257495
+          ]
+        },
+        {
+          "id": "dev-10",
+          "query": "two person camping tent",
+          "kind": "lexical",
+          "relevance": {
+            "camping-tent": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "camping-tent",
+              "score": 7.9396162033081055
+            },
+            {
+              "family": "headlamp",
+              "score": -7.84781551361084
+            },
+            {
+              "family": "hiking-backpack",
+              "score": -10.01690673828125
+            },
+            {
+              "family": "sleeping-bag",
+              "score": -10.12856674194336
+            },
+            {
+              "family": "portable-speaker",
+              "score": -10.812621116638184
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            88.8582910047262,
+            88.73854199919151,
+            87.42083299875958
+          ]
+        },
+        {
+          "id": "dev-11",
+          "query": "wireles runing earbds",
+          "kind": "typo",
+          "relevance": {
+            "running-earbuds": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "running-earbuds",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "foam-roller",
+              "score": 0.016129032258064516
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            7.573875001980923,
+            7.110291000572033,
+            6.670042006589938
+          ]
+        },
+        {
+          "id": "dev-11",
+          "query": "wireles runing earbds",
+          "kind": "typo",
+          "relevance": {
+            "running-earbuds": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "running-earbuds",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "quiet-headphones",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "resistance-bands",
+              "score": 0.015625
+            },
+            {
+              "family": "conference-microphone",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            8.35091699991608,
+            7.591458997922018,
+            7.417415996314958
+          ]
+        },
+        {
+          "id": "dev-11",
+          "query": "wireles runing earbds",
+          "kind": "typo",
+          "relevance": {
+            "running-earbuds": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "running-earbuds",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "foam-roller",
+              "score": 0.031054405392392875
+            },
+            {
+              "family": "quiet-headphones",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "resistance-bands",
+              "score": 0.015625
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            15.48062499932712,
+            10.104375003720634,
+            13.417874994047452
+          ]
+        },
+        {
+          "id": "dev-11",
+          "query": "wireles runing earbds",
+          "kind": "typo",
+          "relevance": {
+            "running-earbuds": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "running-earbuds",
+              "score": -5.115653038024902
+            },
+            {
+              "family": "quiet-headphones",
+              "score": -10.434344291687012
+            },
+            {
+              "family": "foam-roller",
+              "score": -11.279247283935547
+            },
+            {
+              "family": "portable-speaker",
+              "score": -11.348169326782227
+            },
+            {
+              "family": "resistance-bands",
+              "score": -11.359177589416504
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            95.05054100009147,
+            91.78708300169092,
+            92.40725000563543
+          ]
+        },
+        {
+          "id": "dev-12",
+          "query": "raise my screen to eye level",
+          "kind": "semantic",
+          "relevance": {
+            "monitor-arm": 3,
+            "laptop-stand": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "monitor-arm",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "laptop-stand",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "resistance-bands",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "power-bank",
+              "score": 0.015625
+            },
+            {
+              "family": "camping-tent",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            9.077624999918044,
+            8.58070800313726,
+            7.45137500052806
+          ]
+        },
+        {
+          "id": "dev-12",
+          "query": "raise my screen to eye level",
+          "kind": "semantic",
+          "relevance": {
+            "monitor-arm": 3,
+            "laptop-stand": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "monitor-arm",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "laptop-stand",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "standing-desk",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "webcam",
+              "score": 0.015625
+            },
+            {
+              "family": "desk-lamp",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            9.130124999501277,
+            6.622125001740642,
+            7.91729200136615
+          ]
+        },
+        {
+          "id": "dev-12",
+          "query": "raise my screen to eye level",
+          "kind": "semantic",
+          "relevance": {
+            "monitor-arm": 3,
+            "laptop-stand": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "monitor-arm",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "laptop-stand",
+              "score": 0.03225806451612903
+            },
+            {
+              "family": "resistance-bands",
+              "score": 0.03036576949620428
+            },
+            {
+              "family": "electric-kettle",
+              "score": 0.028814262023217248
+            },
+            {
+              "family": "standing-desk",
+              "score": 0.015873015873015872
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            15.3861250000773,
+            9.711083002912346,
+            11.464000002888497
+          ]
+        },
+        {
+          "id": "dev-12",
+          "query": "raise my screen to eye level",
+          "kind": "semantic",
+          "relevance": {
+            "monitor-arm": 3,
+            "laptop-stand": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "monitor-arm",
+              "score": 0.49495506286621094
+            },
+            {
+              "family": "laptop-stand",
+              "score": -2.9243781566619873
+            },
+            {
+              "family": "camping-tent",
+              "score": -11.349864959716797
+            },
+            {
+              "family": "hiking-backpack",
+              "score": -11.357993125915527
+            },
+            {
+              "family": "electric-kettle",
+              "score": -11.367677688598633
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            100.85870799957775,
+            92.12570900126593,
+            94.13849999691593
+          ]
+        }
+      ]
+    },
+    "test": {
+      "kinds": {
+        "semantic": 14,
+        "typo": 6,
+        "lexical": 4
+      },
+      "summary": {
+        "lexical": {
+          "recall_at_5": 0.9791666666666666,
+          "ndcg_at_5": 0.9395103819285173,
+          "mrr": 0.9236111111111112,
+          "p50_ms": 8.352624499821104,
+          "p95_ms": 10.421189551198042,
+          "query_count": 24,
+          "request_count": 72
+        },
+        "semantic": {
+          "recall_at_5": 1.0,
+          "ndcg_at_5": 1.0,
+          "mrr": 1.0,
+          "p50_ms": 6.947395497263642,
+          "p95_ms": 12.507227300011438,
+          "query_count": 24,
+          "request_count": 72
+        },
+        "hybrid": {
+          "recall_at_5": 0.9791666666666666,
+          "ndcg_at_5": 0.981177048595184,
+          "mrr": 0.9791666666666666,
+          "p50_ms": 10.88500000332715,
+          "p95_ms": 14.714491546692443,
+          "query_count": 24,
+          "request_count": 72
+        },
+        "rerank": {
+          "recall_at_5": 1.0,
+          "ndcg_at_5": 0.9791666666666666,
+          "mrr": 0.9722222222222222,
+          "p50_ms": 99.80204149906058,
+          "p95_ms": 136.23966454833862,
+          "query_count": 24,
+          "request_count": 72
+        }
+      },
+      "queries": [
+        {
+          "id": "test-01",
+          "query": "hear less cabin noise while trying to rest on a plane",
+          "kind": "semantic",
+          "relevance": {
+            "quiet-headphones": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "quiet-headphones",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "conference-microphone",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "running-earbuds",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "humidifier",
+              "score": 0.015625
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            6.910249998327345,
+            8.359833002032246,
+            7.707666001806501
+          ]
+        },
+        {
+          "id": "test-01",
+          "query": "hear less cabin noise while trying to rest on a plane",
+          "kind": "semantic",
+          "relevance": {
+            "quiet-headphones": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "quiet-headphones",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "humidifier",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "camping-tent",
+              "score": 0.015625
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            13.514416001271456,
+            8.266958000604063,
+            6.370084003719967
+          ]
+        },
+        {
+          "id": "test-01",
+          "query": "hear less cabin noise while trying to rest on a plane",
+          "kind": "semantic",
+          "relevance": {
+            "quiet-headphones": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "quiet-headphones",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "humidifier",
+              "score": 0.031754032258064516
+            },
+            {
+              "family": "conference-microphone",
+              "score": 0.03128054740957967
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.03076923076923077
+            },
+            {
+              "family": "headlamp",
+              "score": 0.02919863597612958
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            10.474750000867061,
+            11.8762499987497,
+            10.378291000961326
+          ]
+        },
+        {
+          "id": "test-01",
+          "query": "hear less cabin noise while trying to rest on a plane",
+          "kind": "semantic",
+          "relevance": {
+            "quiet-headphones": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "quiet-headphones",
+              "score": -5.484623432159424
+            },
+            {
+              "family": "conference-microphone",
+              "score": -10.932713508605957
+            },
+            {
+              "family": "resistance-bands",
+              "score": -11.15727710723877
+            },
+            {
+              "family": "coffee-grinder",
+              "score": -11.21458625793457
+            },
+            {
+              "family": "portable-speaker",
+              "score": -11.234945297241211
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            126.11741699947743,
+            136.68266699824017,
+            125.83124999946449
+          ]
+        },
+        {
+          "id": "test-02",
+          "query": "earphones that stay put when I go for a jog",
+          "kind": "semantic",
+          "relevance": {
+            "running-earbuds": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "running-earbuds",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "quiet-headphones",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "blender",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "power-bank",
+              "score": 0.015625
+            },
+            {
+              "family": "air-purifier",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            9.239041006367188,
+            9.114207998209167,
+            8.1801659980556
+          ]
+        },
+        {
+          "id": "test-02",
+          "query": "earphones that stay put when I go for a jog",
+          "kind": "semantic",
+          "relevance": {
+            "running-earbuds": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "running-earbuds",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "quiet-headphones",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.015625
+            },
+            {
+              "family": "resistance-bands",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            13.915332994656637,
+            8.95104100345634,
+            6.867374999274034
+          ]
+        },
+        {
+          "id": "test-02",
+          "query": "earphones that stay put when I go for a jog",
+          "kind": "semantic",
+          "relevance": {
+            "running-earbuds": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "running-earbuds",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "quiet-headphones",
+              "score": 0.03225806451612903
+            },
+            {
+              "family": "blender",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.015625
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            13.537958002416417,
+            13.571582996519282,
+            10.250916006043553
+          ]
+        },
+        {
+          "id": "test-02",
+          "query": "earphones that stay put when I go for a jog",
+          "kind": "semantic",
+          "relevance": {
+            "running-earbuds": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "running-earbuds",
+              "score": 4.489809989929199
+            },
+            {
+              "family": "quiet-headphones",
+              "score": -6.160311698913574
+            },
+            {
+              "family": "resistance-bands",
+              "score": -10.973051071166992
+            },
+            {
+              "family": "portable-speaker",
+              "score": -11.103133201599121
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": -11.22296142578125
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            133.14708400139352,
+            130.2638749984908,
+            129.2997499986086
+          ]
+        },
+        {
+          "id": "test-03",
+          "query": "USB confernce microphne",
+          "kind": "typo",
+          "relevance": {
+            "conference-microphone": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "conference-microphone",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "usb-hub",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "webcam",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "power-bank",
+              "score": 0.015625
+            },
+            {
+              "family": "external-ssd",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            9.887749998597428,
+            10.091583004395943,
+            7.889667002018541
+          ]
+        },
+        {
+          "id": "test-03",
+          "query": "USB confernce microphne",
+          "kind": "typo",
+          "relevance": {
+            "conference-microphone": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "conference-microphone",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "webcam",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "usb-hub",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "external-ssd",
+              "score": 0.015625
+            },
+            {
+              "family": "power-bank",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            7.2626660039532,
+            7.243917003506795,
+            6.843000002845656
+          ]
+        },
+        {
+          "id": "test-03",
+          "query": "USB confernce microphne",
+          "kind": "typo",
+          "relevance": {
+            "conference-microphone": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "conference-microphone",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "usb-hub",
+              "score": 0.03200204813108039
+            },
+            {
+              "family": "webcam",
+              "score": 0.03200204813108039
+            },
+            {
+              "family": "external-ssd",
+              "score": 0.031009615384615385
+            },
+            {
+              "family": "power-bank",
+              "score": 0.031009615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            16.637291002552956,
+            11.734791005437728,
+            11.102875003416557
+          ]
+        },
+        {
+          "id": "test-03",
+          "query": "USB confernce microphne",
+          "kind": "typo",
+          "relevance": {
+            "conference-microphone": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "usb-hub",
+              "score": -10.55828857421875
+            },
+            {
+              "family": "external-ssd",
+              "score": -10.582921981811523
+            },
+            {
+              "family": "conference-microphone",
+              "score": -10.621267318725586
+            },
+            {
+              "family": "power-bank",
+              "score": -10.966630935668945
+            },
+            {
+              "family": "webcam",
+              "score": -11.112997055053711
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 0.5,
+            "mrr": 0.3333333333333333
+          },
+          "latency_ms": [
+            82.31954200164182,
+            81.6271660005441,
+            78.71241599787027
+          ]
+        },
+        {
+          "id": "test-04",
+          "query": "play music beside the pool without worrying about splashes",
+          "kind": "semantic",
+          "relevance": {
+            "portable-speaker": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "portable-speaker",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "desk-lamp",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "sleeping-bag",
+              "score": 0.015873015873015872
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            9.17791599931661,
+            8.107499998004641,
+            10.595792002277449
+          ]
+        },
+        {
+          "id": "test-04",
+          "query": "play music beside the pool without worrying about splashes",
+          "kind": "semantic",
+          "relevance": {
+            "portable-speaker": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "portable-speaker",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "running-earbuds",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "humidifier",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "camping-tent",
+              "score": 0.015625
+            },
+            {
+              "family": "yoga-mat",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            7.586292005726136,
+            6.838624998636078,
+            9.488333998888265
+          ]
+        },
+        {
+          "id": "test-04",
+          "query": "play music beside the pool without worrying about splashes",
+          "kind": "semantic",
+          "relevance": {
+            "portable-speaker": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "portable-speaker",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "desk-lamp",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "running-earbuds",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "humidifier",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "sleeping-bag",
+              "score": 0.015873015873015872
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            13.603207997221034,
+            12.191125002573244,
+            13.79804199677892
+          ]
+        },
+        {
+          "id": "test-04",
+          "query": "play music beside the pool without worrying about splashes",
+          "kind": "semantic",
+          "relevance": {
+            "portable-speaker": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "portable-speaker",
+              "score": -7.474713325500488
+            },
+            {
+              "family": "quiet-headphones",
+              "score": -11.277793884277344
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": -11.279488563537598
+            },
+            {
+              "family": "wifi-router",
+              "score": -11.305801391601562
+            },
+            {
+              "family": "sleeping-bag",
+              "score": -11.31651782989502
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            121.10162500175647,
+            116.35541600116994,
+            129.27712499367772
+          ]
+        },
+        {
+          "id": "test-05",
+          "query": "a pointing device I can hold like a handshake",
+          "kind": "semantic",
+          "relevance": {
+            "vertical-mouse": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "vertical-mouse",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "laptop-stand",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "headlamp",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "hiking-backpack",
+              "score": 0.015625
+            },
+            {
+              "family": "monitor-arm",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            8.715541996934917,
+            10.278333000314888,
+            8.600832996307872
+          ]
+        },
+        {
+          "id": "test-05",
+          "query": "a pointing device I can hold like a handshake",
+          "kind": "semantic",
+          "relevance": {
+            "vertical-mouse": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "vertical-mouse",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "conference-microphone",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "monitor-arm",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.015625
+            },
+            {
+              "family": "webcam",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            12.891332997241989,
+            7.650041996384971,
+            6.705792002321687
+          ]
+        },
+        {
+          "id": "test-05",
+          "query": "a pointing device I can hold like a handshake",
+          "kind": "semantic",
+          "relevance": {
+            "vertical-mouse": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "vertical-mouse",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "laptop-stand",
+              "score": 0.03128054740957967
+            },
+            {
+              "family": "monitor-arm",
+              "score": 0.03125763125763126
+            },
+            {
+              "family": "conference-microphone",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "headlamp",
+              "score": 0.015873015873015872
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            12.861625000368804,
+            11.522208005771972,
+            11.180374996911269
+          ]
+        },
+        {
+          "id": "test-05",
+          "query": "a pointing device I can hold like a handshake",
+          "kind": "semantic",
+          "relevance": {
+            "vertical-mouse": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "vertical-mouse",
+              "score": 4.897646903991699
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": -11.120786666870117
+            },
+            {
+              "family": "monitor-arm",
+              "score": -11.244427680969238
+            },
+            {
+              "family": "headlamp",
+              "score": -11.288575172424316
+            },
+            {
+              "family": "resistance-bands",
+              "score": -11.328603744506836
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            135.0361669974518,
+            138.90629199886462,
+            135.87720799841918
+          ]
+        },
+        {
+          "id": "test-06",
+          "query": "electric standing desk",
+          "kind": "lexical",
+          "relevance": {
+            "standing-desk": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "standing-desk",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "laptop-stand",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "coffee-grinder",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "desk-lamp",
+              "score": 0.015625
+            },
+            {
+              "family": "electric-kettle",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            8.917040999222081,
+            8.752082998398691,
+            7.510959003411699
+          ]
+        },
+        {
+          "id": "test-06",
+          "query": "electric standing desk",
+          "kind": "lexical",
+          "relevance": {
+            "standing-desk": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "standing-desk",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "monitor-arm",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "desk-lamp",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "laptop-stand",
+              "score": 0.015625
+            },
+            {
+              "family": "vertical-mouse",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            10.655792000761721,
+            6.589791999431327,
+            6.10637499630684
+          ]
+        },
+        {
+          "id": "test-06",
+          "query": "electric standing desk",
+          "kind": "lexical",
+          "relevance": {
+            "standing-desk": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "standing-desk",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "laptop-stand",
+              "score": 0.031754032258064516
+            },
+            {
+              "family": "desk-lamp",
+              "score": 0.03149801587301587
+            },
+            {
+              "family": "monitor-arm",
+              "score": 0.03128054740957967
+            },
+            {
+              "family": "electric-kettle",
+              "score": 0.029877369007803793
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            11.318292003124952,
+            10.920374996203464,
+            9.950041996489745
+          ]
+        },
+        {
+          "id": "test-06",
+          "query": "electric standing desk",
+          "kind": "lexical",
+          "relevance": {
+            "standing-desk": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "standing-desk",
+              "score": 6.406651973724365
+            },
+            {
+              "family": "laptop-stand",
+              "score": -6.752569198608398
+            },
+            {
+              "family": "monitor-arm",
+              "score": -7.477707386016846
+            },
+            {
+              "family": "desk-lamp",
+              "score": -7.978427886962891
+            },
+            {
+              "family": "vertical-mouse",
+              "score": -10.826985359191895
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            80.11512499797391,
+            81.223332999798,
+            80.06250000471482
+          ]
+        },
+        {
+          "id": "test-07",
+          "query": "dual monitro arm",
+          "kind": "typo",
+          "relevance": {
+            "monitor-arm": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "monitor-arm",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "sleeping-bag",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "wifi-router",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "standing-desk",
+              "score": 0.015625
+            },
+            {
+              "family": "electric-kettle",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            7.756916995276697,
+            8.19370800309116,
+            6.445792001613881
+          ]
+        },
+        {
+          "id": "test-07",
+          "query": "dual monitro arm",
+          "kind": "typo",
+          "relevance": {
+            "monitor-arm": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "monitor-arm",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "vertical-mouse",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "laptop-stand",
+              "score": 0.015625
+            },
+            {
+              "family": "resistance-bands",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            6.329374999040738,
+            7.317625000723638,
+            6.897166000271682
+          ]
+        },
+        {
+          "id": "test-07",
+          "query": "dual monitro arm",
+          "kind": "typo",
+          "relevance": {
+            "monitor-arm": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "monitor-arm",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "standing-desk",
+              "score": 0.030776515151515152
+            },
+            {
+              "family": "wifi-router",
+              "score": 0.02976190476190476
+            },
+            {
+              "family": "sleeping-bag",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "vertical-mouse",
+              "score": 0.016129032258064516
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            14.794790993619245,
+            10.731333000876475,
+            10.03133299673209
+          ]
+        },
+        {
+          "id": "test-07",
+          "query": "dual monitro arm",
+          "kind": "typo",
+          "relevance": {
+            "monitor-arm": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "monitor-arm",
+              "score": -2.197065830230713
+            },
+            {
+              "family": "wifi-router",
+              "score": -10.347895622253418
+            },
+            {
+              "family": "vertical-mouse",
+              "score": -11.305838584899902
+            },
+            {
+              "family": "laptop-stand",
+              "score": -11.354528427124023
+            },
+            {
+              "family": "resistance-bands",
+              "score": -11.357949256896973
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            88.34458400087897,
+            87.39220799907343,
+            89.33350000006612
+          ]
+        },
+        {
+          "id": "test-08",
+          "query": "make paperwork easier to read at night",
+          "kind": "semantic",
+          "relevance": {
+            "desk-lamp": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "headlamp",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "desk-lamp",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "sleeping-bag",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "food-scale",
+              "score": 0.015625
+            },
+            {
+              "family": "blender",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 0.6309297535714575,
+            "mrr": 0.5
+          },
+          "latency_ms": [
+            9.825083005125634,
+            8.099375001620501,
+            8.82912499946542
+          ]
+        },
+        {
+          "id": "test-08",
+          "query": "make paperwork easier to read at night",
+          "kind": "semantic",
+          "relevance": {
+            "desk-lamp": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "desk-lamp",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "standing-desk",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "humidifier",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.015625
+            },
+            {
+              "family": "webcam",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            6.961040999158286,
+            6.895541002450045,
+            6.8608750007115304
+          ]
+        },
+        {
+          "id": "test-08",
+          "query": "make paperwork easier to read at night",
+          "kind": "semantic",
+          "relevance": {
+            "desk-lamp": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "desk-lamp",
+              "score": 0.03252247488101534
+            },
+            {
+              "family": "headlamp",
+              "score": 0.031099324975891997
+            },
+            {
+              "family": "webcam",
+              "score": 0.030536130536130537
+            },
+            {
+              "family": "standing-desk",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "humidifier",
+              "score": 0.015873015873015872
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            11.608000000705943,
+            10.54275000205962,
+            11.379832998500206
+          ]
+        },
+        {
+          "id": "test-08",
+          "query": "make paperwork easier to read at night",
+          "kind": "semantic",
+          "relevance": {
+            "desk-lamp": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "desk-lamp",
+              "score": -8.836997985839844
+            },
+            {
+              "family": "headlamp",
+              "score": -11.238783836364746
+            },
+            {
+              "family": "sleeping-bag",
+              "score": -11.28235912322998
+            },
+            {
+              "family": "humidifier",
+              "score": -11.315851211547852
+            },
+            {
+              "family": "camping-tent",
+              "score": -11.31625747680664
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            124.57891699887114,
+            122.04958400252508,
+            124.58708399935858
+          ]
+        },
+        {
+          "id": "test-09",
+          "query": "folding lapotp stand",
+          "kind": "typo",
+          "relevance": {
+            "laptop-stand": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "laptop-stand",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "food-scale",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "standing-desk",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "water-bottle",
+              "score": 0.015625
+            },
+            {
+              "family": "monitor-arm",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            6.585458999325056,
+            8.025916999031324,
+            7.584749997477047
+          ]
+        },
+        {
+          "id": "test-09",
+          "query": "folding lapotp stand",
+          "kind": "typo",
+          "relevance": {
+            "laptop-stand": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "laptop-stand",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "monitor-arm",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "standing-desk",
+              "score": 0.015625
+            },
+            {
+              "family": "vertical-mouse",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            11.152874998515472,
+            7.603458005178254,
+            6.286833006015513
+          ]
+        },
+        {
+          "id": "test-09",
+          "query": "folding lapotp stand",
+          "kind": "typo",
+          "relevance": {
+            "laptop-stand": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "laptop-stand",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "monitor-arm",
+              "score": 0.0315136476426799
+            },
+            {
+              "family": "standing-desk",
+              "score": 0.03149801587301587
+            },
+            {
+              "family": "hiking-backpack",
+              "score": 0.03007688828584351
+            },
+            {
+              "family": "water-bottle",
+              "score": 0.029910714285714284
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            10.580916001345031,
+            9.418292000191286,
+            9.343707999505568
+          ]
+        },
+        {
+          "id": "test-09",
+          "query": "folding lapotp stand",
+          "kind": "typo",
+          "relevance": {
+            "laptop-stand": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "laptop-stand",
+              "score": 1.4715640544891357
+            },
+            {
+              "family": "standing-desk",
+              "score": -10.796628952026367
+            },
+            {
+              "family": "foam-roller",
+              "score": -10.798883438110352
+            },
+            {
+              "family": "yoga-mat",
+              "score": -10.883522033691406
+            },
+            {
+              "family": "vertical-mouse",
+              "score": -10.972359657287598
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            86.85158399748616,
+            87.23541699873749,
+            89.01895800227067
+          ]
+        },
+        {
+          "id": "test-10",
+          "query": "connect a screen and a memory card to one laptop port",
+          "kind": "semantic",
+          "relevance": {
+            "usb-hub": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "usb-hub",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "laptop-stand",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "running-earbuds",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "standing-desk",
+              "score": 0.015625
+            },
+            {
+              "family": "monitor-arm",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            10.261416995490436,
+            10.119791004399303,
+            9.891374997096136
+          ]
+        },
+        {
+          "id": "test-10",
+          "query": "connect a screen and a memory card to one laptop port",
+          "kind": "semantic",
+          "relevance": {
+            "usb-hub": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "usb-hub",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "laptop-stand",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "monitor-arm",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "conference-microphone",
+              "score": 0.015625
+            },
+            {
+              "family": "power-bank",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            13.188459000957664,
+            6.253791005292442,
+            6.7310000013094395
+          ]
+        },
+        {
+          "id": "test-10",
+          "query": "connect a screen and a memory card to one laptop port",
+          "kind": "semantic",
+          "relevance": {
+            "usb-hub": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "usb-hub",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "laptop-stand",
+              "score": 0.03225806451612903
+            },
+            {
+              "family": "monitor-arm",
+              "score": 0.03125763125763126
+            },
+            {
+              "family": "external-ssd",
+              "score": 0.03007688828584351
+            },
+            {
+              "family": "webcam",
+              "score": 0.029857397504456328
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            13.350583001738414,
+            13.063167003565468,
+            13.319292003870942
+          ]
+        },
+        {
+          "id": "test-10",
+          "query": "connect a screen and a memory card to one laptop port",
+          "kind": "semantic",
+          "relevance": {
+            "usb-hub": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "usb-hub",
+              "score": 3.575993061065674
+            },
+            {
+              "family": "laptop-stand",
+              "score": -9.435842514038086
+            },
+            {
+              "family": "standing-desk",
+              "score": -10.343295097351074
+            },
+            {
+              "family": "monitor-arm",
+              "score": -10.918930053710938
+            },
+            {
+              "family": "external-ssd",
+              "score": -11.154533386230469
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            128.60233299579704,
+            131.2142499955371,
+            128.45779200142715
+          ]
+        },
+        {
+          "id": "test-11",
+          "query": "external solid state drive",
+          "kind": "lexical",
+          "relevance": {
+            "external-ssd": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "external-ssd",
+              "score": 0.01639344262295082
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            8.435208001174033,
+            7.830167000065558,
+            7.0387919986387715
+          ]
+        },
+        {
+          "id": "test-11",
+          "query": "external solid state drive",
+          "kind": "lexical",
+          "relevance": {
+            "external-ssd": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "external-ssd",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "usb-hub",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "webcam",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "power-bank",
+              "score": 0.015625
+            },
+            {
+              "family": "conference-microphone",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            7.357291004154831,
+            7.7309580010478385,
+            5.818917001306545
+          ]
+        },
+        {
+          "id": "test-11",
+          "query": "external solid state drive",
+          "kind": "lexical",
+          "relevance": {
+            "external-ssd": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "external-ssd",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "usb-hub",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "webcam",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "power-bank",
+              "score": 0.015625
+            },
+            {
+              "family": "conference-microphone",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            13.040332996752113,
+            9.12995899852831,
+            8.967166002548765
+          ]
+        },
+        {
+          "id": "test-11",
+          "query": "external solid state drive",
+          "kind": "lexical",
+          "relevance": {
+            "external-ssd": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "external-ssd",
+              "score": 6.953506946563721
+            },
+            {
+              "family": "power-bank",
+              "score": -11.36070728302002
+            },
+            {
+              "family": "standing-desk",
+              "score": -11.37761402130127
+            },
+            {
+              "family": "laptop-stand",
+              "score": -11.401418685913086
+            },
+            {
+              "family": "conference-microphone",
+              "score": -11.411195755004883
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            75.8949160008342,
+            75.5658330017468,
+            75.04587500443449
+          ]
+        },
+        {
+          "id": "test-12",
+          "query": "the internet barely reaches the far bedroom",
+          "kind": "semantic",
+          "relevance": {
+            "wifi-router": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "food-scale",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "air-purifier",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "wifi-router",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "quiet-headphones",
+              "score": 0.015625
+            },
+            {
+              "family": "running-earbuds",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 0.5,
+            "mrr": 0.3333333333333333
+          },
+          "latency_ms": [
+            9.210500000335742,
+            7.623332996445242,
+            8.91037499968661
+          ]
+        },
+        {
+          "id": "test-12",
+          "query": "the internet barely reaches the far bedroom",
+          "kind": "semantic",
+          "relevance": {
+            "wifi-router": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "wifi-router",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "webcam",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "conference-microphone",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.015625
+            },
+            {
+              "family": "air-purifier",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            8.227625003200956,
+            6.066624999220949,
+            6.560583999089431
+          ]
+        },
+        {
+          "id": "test-12",
+          "query": "the internet barely reaches the far bedroom",
+          "kind": "semantic",
+          "relevance": {
+            "wifi-router": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "wifi-router",
+              "score": 0.032266458495966696
+            },
+            {
+              "family": "air-purifier",
+              "score": 0.0315136476426799
+            },
+            {
+              "family": "quiet-headphones",
+              "score": 0.030330882352941176
+            },
+            {
+              "family": "food-scale",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "webcam",
+              "score": 0.016129032258064516
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            12.349249998806044,
+            10.872167003981303,
+            10.829332997673191
+          ]
+        },
+        {
+          "id": "test-12",
+          "query": "the internet barely reaches the far bedroom",
+          "kind": "semantic",
+          "relevance": {
+            "wifi-router": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "wifi-router",
+              "score": -11.098920822143555
+            },
+            {
+              "family": "conference-microphone",
+              "score": -11.378491401672363
+            },
+            {
+              "family": "running-earbuds",
+              "score": -11.380443572998047
+            },
+            {
+              "family": "camping-tent",
+              "score": -11.385990142822266
+            },
+            {
+              "family": "humidifier",
+              "score": -11.396937370300293
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            113.1600829976378,
+            105.96145899762632,
+            105.93549999612151
+          ]
+        },
+        {
+          "id": "test-13",
+          "query": "remove pollen and pet dander from my bedroom air",
+          "kind": "semantic",
+          "relevance": {
+            "air-purifier": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "air-purifier",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "foam-roller",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "resistance-bands",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "robot-vacuum",
+              "score": 0.015625
+            },
+            {
+              "family": "camping-tent",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            8.783042001596186,
+            9.669417006080039,
+            10.116917001141701
+          ]
+        },
+        {
+          "id": "test-13",
+          "query": "remove pollen and pet dander from my bedroom air",
+          "kind": "semantic",
+          "relevance": {
+            "air-purifier": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "air-purifier",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "humidifier",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "robot-vacuum",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "water-bottle",
+              "score": 0.015625
+            },
+            {
+              "family": "wifi-router",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            11.024500003259163,
+            6.8870409959345125,
+            6.854915998701472
+          ]
+        },
+        {
+          "id": "test-13",
+          "query": "remove pollen and pet dander from my bedroom air",
+          "kind": "semantic",
+          "relevance": {
+            "air-purifier": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "air-purifier",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "robot-vacuum",
+              "score": 0.03149801587301587
+            },
+            {
+              "family": "humidifier",
+              "score": 0.030834914611005692
+            },
+            {
+              "family": "camping-tent",
+              "score": 0.030536130536130537
+            },
+            {
+              "family": "blender",
+              "score": 0.028985507246376812
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            12.092874996596947,
+            10.69604200165486,
+            11.193999998795334
+          ]
+        },
+        {
+          "id": "test-13",
+          "query": "remove pollen and pet dander from my bedroom air",
+          "kind": "semantic",
+          "relevance": {
+            "air-purifier": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "air-purifier",
+              "score": 5.400434494018555
+            },
+            {
+              "family": "robot-vacuum",
+              "score": -10.359275817871094
+            },
+            {
+              "family": "humidifier",
+              "score": -11.25949478149414
+            },
+            {
+              "family": "foam-roller",
+              "score": -11.344663619995117
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": -11.349627494812012
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            126.01045799965505,
+            125.3512499970384,
+            126.43749999551801
+          ]
+        },
+        {
+          "id": "test-14",
+          "query": "robot vaccum cleener",
+          "kind": "typo",
+          "relevance": {
+            "robot-vacuum": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "robot-vacuum",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "water-bottle",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "camping-tent",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "food-scale",
+              "score": 0.015625
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            8.578207998652942,
+            8.047041999816429,
+            8.639667001261842
+          ]
+        },
+        {
+          "id": "test-14",
+          "query": "robot vaccum cleener",
+          "kind": "typo",
+          "relevance": {
+            "robot-vacuum": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "robot-vacuum",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "humidifier",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "standing-desk",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "air-purifier",
+              "score": 0.015625
+            },
+            {
+              "family": "foam-roller",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            11.865166001371108,
+            6.734165996022057,
+            5.746416994952597
+          ]
+        },
+        {
+          "id": "test-14",
+          "query": "robot vaccum cleener",
+          "kind": "typo",
+          "relevance": {
+            "robot-vacuum": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "robot-vacuum",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "humidifier",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "water-bottle",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "camping-tent",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "standing-desk",
+              "score": 0.015873015873015872
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            10.897833002672996,
+            10.227250000752974,
+            9.170833996904548
+          ]
+        },
+        {
+          "id": "test-14",
+          "query": "robot vaccum cleener",
+          "kind": "typo",
+          "relevance": {
+            "robot-vacuum": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "robot-vacuum",
+              "score": -8.706257820129395
+            },
+            {
+              "family": "portable-speaker",
+              "score": -11.360570907592773
+            },
+            {
+              "family": "vertical-mouse",
+              "score": -11.385943412780762
+            },
+            {
+              "family": "humidifier",
+              "score": -11.392574310302734
+            },
+            {
+              "family": "air-purifier",
+              "score": -11.399322509765625
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            99.34008400159655,
+            98.83224999794038,
+            99.34100000100443
+          ]
+        },
+        {
+          "id": "test-15",
+          "query": "heat water gently for green tea",
+          "kind": "semantic",
+          "relevance": {
+            "electric-kettle": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "electric-kettle",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "water-bottle",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "humidifier",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "hiking-backpack",
+              "score": 0.015625
+            },
+            {
+              "family": "headlamp",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            8.194000001822133,
+            7.662167001399212,
+            6.5103330052807
+          ]
+        },
+        {
+          "id": "test-15",
+          "query": "heat water gently for green tea",
+          "kind": "semantic",
+          "relevance": {
+            "electric-kettle": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "electric-kettle",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "water-bottle",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "humidifier",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "blender",
+              "score": 0.015625
+            },
+            {
+              "family": "coffee-grinder",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            6.24358299683081,
+            5.986582997138612,
+            6.177208000735845
+          ]
+        },
+        {
+          "id": "test-15",
+          "query": "heat water gently for green tea",
+          "kind": "semantic",
+          "relevance": {
+            "electric-kettle": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "electric-kettle",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "water-bottle",
+              "score": 0.03225806451612903
+            },
+            {
+              "family": "humidifier",
+              "score": 0.031746031746031744
+            },
+            {
+              "family": "blender",
+              "score": 0.015625
+            },
+            {
+              "family": "hiking-backpack",
+              "score": 0.015625
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            14.648791999206878,
+            9.438042005058378,
+            8.760583004914224
+          ]
+        },
+        {
+          "id": "test-15",
+          "query": "heat water gently for green tea",
+          "kind": "semantic",
+          "relevance": {
+            "electric-kettle": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "electric-kettle",
+              "score": 3.596367835998535
+            },
+            {
+              "family": "water-bottle",
+              "score": -8.088593482971191
+            },
+            {
+              "family": "humidifier",
+              "score": -11.203535079956055
+            },
+            {
+              "family": "coffee-grinder",
+              "score": -11.214932441711426
+            },
+            {
+              "family": "portable-speaker",
+              "score": -11.217681884765625
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            95.10074999707285,
+            94.71408300305484,
+            92.92500000447035
+          ]
+        },
+        {
+          "id": "test-16",
+          "query": "weigh flour without counting the bowl",
+          "kind": "semantic",
+          "relevance": {
+            "food-scale": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "food-scale",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "electric-kettle",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "yoga-mat",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "desk-lamp",
+              "score": 0.015625
+            },
+            {
+              "family": "monitor-arm",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            8.179457996448036,
+            6.802042000344954,
+            7.605207996675745
+          ]
+        },
+        {
+          "id": "test-16",
+          "query": "weigh flour without counting the bowl",
+          "kind": "semantic",
+          "relevance": {
+            "food-scale": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "food-scale",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "coffee-grinder",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "blender",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "yoga-mat",
+              "score": 0.015625
+            },
+            {
+              "family": "electric-kettle",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            6.6946250008186325,
+            5.7890829993993975,
+            6.371083996782545
+          ]
+        },
+        {
+          "id": "test-16",
+          "query": "weigh flour without counting the bowl",
+          "kind": "semantic",
+          "relevance": {
+            "food-scale": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "food-scale",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "electric-kettle",
+              "score": 0.0315136476426799
+            },
+            {
+              "family": "yoga-mat",
+              "score": 0.03149801587301587
+            },
+            {
+              "family": "monitor-arm",
+              "score": 0.029273504273504274
+            },
+            {
+              "family": "coffee-grinder",
+              "score": 0.016129032258064516
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            13.595042000815738,
+            9.838790996582247,
+            9.962500000256114
+          ]
+        },
+        {
+          "id": "test-16",
+          "query": "weigh flour without counting the bowl",
+          "kind": "semantic",
+          "relevance": {
+            "food-scale": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "food-scale",
+              "score": -5.231681823730469
+            },
+            {
+              "family": "wifi-router",
+              "score": -11.404693603515625
+            },
+            {
+              "family": "monitor-arm",
+              "score": -11.409398078918457
+            },
+            {
+              "family": "laptop-stand",
+              "score": -11.409778594970703
+            },
+            {
+              "family": "foam-roller",
+              "score": -11.424812316894531
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            95.1492500025779,
+            89.01616699586157,
+            88.26579099695664
+          ]
+        },
+        {
+          "id": "test-17",
+          "query": "smoothie blender",
+          "kind": "lexical",
+          "relevance": {
+            "blender": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "blender",
+              "score": 0.01639344262295082
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            7.6482080039568245,
+            8.084499997494277,
+            8.301124995341524
+          ]
+        },
+        {
+          "id": "test-17",
+          "query": "smoothie blender",
+          "kind": "lexical",
+          "relevance": {
+            "blender": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "blender",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "coffee-grinder",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "foam-roller",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "air-purifier",
+              "score": 0.015625
+            },
+            {
+              "family": "humidifier",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            9.313208000094164,
+            6.9337499953689985,
+            6.69829199614469
+          ]
+        },
+        {
+          "id": "test-17",
+          "query": "smoothie blender",
+          "kind": "lexical",
+          "relevance": {
+            "blender": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "blender",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "coffee-grinder",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "foam-roller",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "air-purifier",
+              "score": 0.015625
+            },
+            {
+              "family": "humidifier",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            10.091832999023609,
+            10.98574999923585,
+            9.45670800138032
+          ]
+        },
+        {
+          "id": "test-17",
+          "query": "smoothie blender",
+          "kind": "lexical",
+          "relevance": {
+            "blender": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "blender",
+              "score": 7.32457971572876
+            },
+            {
+              "family": "coffee-grinder",
+              "score": -10.430788040161133
+            },
+            {
+              "family": "foam-roller",
+              "score": -11.01751708984375
+            },
+            {
+              "family": "electric-kettle",
+              "score": -11.084806442260742
+            },
+            {
+              "family": "air-purifier",
+              "score": -11.086963653564453
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            75.0320839943015,
+            74.80349999968894,
+            76.38537499587983
+          ]
+        },
+        {
+          "id": "test-18",
+          "query": "thirty litre hiking backpak",
+          "kind": "typo",
+          "relevance": {
+            "hiking-backpack": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "hiking-backpack",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "headlamp",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "sleeping-bag",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "quiet-headphones",
+              "score": 0.015625
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            8.695249998709187,
+            8.439416997134686,
+            8.345415997609962
+          ]
+        },
+        {
+          "id": "test-18",
+          "query": "thirty litre hiking backpak",
+          "kind": "typo",
+          "relevance": {
+            "hiking-backpack": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "hiking-backpack",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "headlamp",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "power-bank",
+              "score": 0.015625
+            },
+            {
+              "family": "sleeping-bag",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            11.846207999042235,
+            12.192959002277348,
+            5.762207998486701
+          ]
+        },
+        {
+          "id": "test-18",
+          "query": "thirty litre hiking backpak",
+          "kind": "typo",
+          "relevance": {
+            "hiking-backpack": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "hiking-backpack",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "headlamp",
+              "score": 0.03200204813108039
+            },
+            {
+              "family": "sleeping-bag",
+              "score": 0.03125763125763126
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "power-bank",
+              "score": 0.015625
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            10.518584000237752,
+            10.28654100082349,
+            10.727459004556295
+          ]
+        },
+        {
+          "id": "test-18",
+          "query": "thirty litre hiking backpak",
+          "kind": "typo",
+          "relevance": {
+            "hiking-backpack": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "hiking-backpack",
+              "score": 6.449810028076172
+            },
+            {
+              "family": "headlamp",
+              "score": -9.975796699523926
+            },
+            {
+              "family": "portable-speaker",
+              "score": -11.251537322998047
+            },
+            {
+              "family": "foam-roller",
+              "score": -11.330277442932129
+            },
+            {
+              "family": "sleeping-bag",
+              "score": -11.339834213256836
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            96.52316699794028,
+            95.91529200406512,
+            96.88441600155784
+          ]
+        },
+        {
+          "id": "test-19",
+          "query": "keep warm when sleeping outside on a chilly autumn night",
+          "kind": "semantic",
+          "relevance": {
+            "sleeping-bag": 3,
+            "camping-tent": 1
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "sleeping-bag",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "headlamp",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "robot-vacuum",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "water-bottle",
+              "score": 0.015625
+            },
+            {
+              "family": "monitor-arm",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 0.5,
+            "ndcg_at_5": 0.9173194127129571,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            11.90354199934518,
+            11.198125001101289,
+            9.113667001656722
+          ]
+        },
+        {
+          "id": "test-19",
+          "query": "keep warm when sleeping outside on a chilly autumn night",
+          "kind": "semantic",
+          "relevance": {
+            "sleeping-bag": 3,
+            "camping-tent": 1
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "sleeping-bag",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "camping-tent",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "water-bottle",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "headlamp",
+              "score": 0.015625
+            },
+            {
+              "family": "electric-kettle",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            6.990082998527214,
+            7.02395800180966,
+            6.248124998819549
+          ]
+        },
+        {
+          "id": "test-19",
+          "query": "keep warm when sleeping outside on a chilly autumn night",
+          "kind": "semantic",
+          "relevance": {
+            "sleeping-bag": 3,
+            "camping-tent": 1
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "sleeping-bag",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "headlamp",
+              "score": 0.031754032258064516
+            },
+            {
+              "family": "water-bottle",
+              "score": 0.03149801587301587
+            },
+            {
+              "family": "electric-kettle",
+              "score": 0.030536130536130537
+            },
+            {
+              "family": "quiet-headphones",
+              "score": 0.029631255487269532
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 0.5,
+            "ndcg_at_5": 0.9173194127129571,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            17.08229199721245,
+            12.897292006528005,
+            10.722166996856686
+          ]
+        },
+        {
+          "id": "test-19",
+          "query": "keep warm when sleeping outside on a chilly autumn night",
+          "kind": "semantic",
+          "relevance": {
+            "sleeping-bag": 3,
+            "camping-tent": 1
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "sleeping-bag",
+              "score": 4.303452014923096
+            },
+            {
+              "family": "camping-tent",
+              "score": -8.57539176940918
+            },
+            {
+              "family": "electric-kettle",
+              "score": -9.009821891784668
+            },
+            {
+              "family": "water-bottle",
+              "score": -10.122876167297363
+            },
+            {
+              "family": "humidifier",
+              "score": -10.565655708312988
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            139.42554200184532,
+            139.45945800514892,
+            133.06208299763966
+          ]
+        },
+        {
+          "id": "test-20",
+          "query": "light the trail while keeping both hands free",
+          "kind": "semantic",
+          "relevance": {
+            "headlamp": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "portable-speaker",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "resistance-bands",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "headlamp",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.015625
+            },
+            {
+              "family": "sleeping-bag",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 0.5,
+            "mrr": 0.3333333333333333
+          },
+          "latency_ms": [
+            7.721999994828366,
+            7.45666599686956,
+            8.000708003237378
+          ]
+        },
+        {
+          "id": "test-20",
+          "query": "light the trail while keeping both hands free",
+          "kind": "semantic",
+          "relevance": {
+            "headlamp": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "headlamp",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "camping-tent",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.015625
+            },
+            {
+              "family": "hiking-backpack",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            7.698499997786712,
+            6.74895900010597,
+            6.881708999571856
+          ]
+        },
+        {
+          "id": "test-20",
+          "query": "light the trail while keeping both hands free",
+          "kind": "semantic",
+          "relevance": {
+            "headlamp": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "portable-speaker",
+              "score": 0.03252247488101534
+            },
+            {
+              "family": "headlamp",
+              "score": 0.032266458495966696
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.03125
+            },
+            {
+              "family": "resistance-bands",
+              "score": 0.031054405392392875
+            },
+            {
+              "family": "sleeping-bag",
+              "score": 0.030090497737556562
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 0.6309297535714575,
+            "mrr": 0.5
+          },
+          "latency_ms": [
+            9.845874999882653,
+            9.704791998956352,
+            10.007749995565973
+          ]
+        },
+        {
+          "id": "test-20",
+          "query": "light the trail while keeping both hands free",
+          "kind": "semantic",
+          "relevance": {
+            "headlamp": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "headlamp",
+              "score": 3.629453420639038
+            },
+            {
+              "family": "portable-speaker",
+              "score": -10.773311614990234
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": -10.91511344909668
+            },
+            {
+              "family": "hiking-backpack",
+              "score": -10.998353958129883
+            },
+            {
+              "family": "camping-tent",
+              "score": -11.178116798400879
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            134.58574999822304,
+            129.82283300516428,
+            127.42354100191733
+          ]
+        },
+        {
+          "id": "test-21",
+          "query": "insulated stainless steel bottle",
+          "kind": "lexical",
+          "relevance": {
+            "water-bottle": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "water-bottle",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "blender",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "sleeping-bag",
+              "score": 0.015873015873015872
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            7.8045410045888275,
+            7.609667001815978,
+            9.38879199384246
+          ]
+        },
+        {
+          "id": "test-21",
+          "query": "insulated stainless steel bottle",
+          "kind": "lexical",
+          "relevance": {
+            "water-bottle": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "water-bottle",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "sleeping-bag",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "electric-kettle",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "humidifier",
+              "score": 0.015625
+            },
+            {
+              "family": "hiking-backpack",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            11.365708000084851,
+            7.308333995752037,
+            7.098249996488448
+          ]
+        },
+        {
+          "id": "test-21",
+          "query": "insulated stainless steel bottle",
+          "kind": "lexical",
+          "relevance": {
+            "water-bottle": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "water-bottle",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "sleeping-bag",
+              "score": 0.03200204813108039
+            },
+            {
+              "family": "blender",
+              "score": 0.031054405392392875
+            },
+            {
+              "family": "electric-kettle",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "humidifier",
+              "score": 0.015625
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            10.939041996607557,
+            10.583875002339482,
+            14.464457999565639
+          ]
+        },
+        {
+          "id": "test-21",
+          "query": "insulated stainless steel bottle",
+          "kind": "lexical",
+          "relevance": {
+            "water-bottle": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "water-bottle",
+              "score": 7.27052116394043
+            },
+            {
+              "family": "sleeping-bag",
+              "score": -10.32471752166748
+            },
+            {
+              "family": "blender",
+              "score": -11.145687103271484
+            },
+            {
+              "family": "portable-speaker",
+              "score": -11.286076545715332
+            },
+            {
+              "family": "humidifier",
+              "score": -11.292998313903809
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            78.62733300135005,
+            76.98541699937778,
+            96.96237499883864
+          ]
+        },
+        {
+          "id": "test-22",
+          "query": "a grippy padded surface for stretching on the floor",
+          "kind": "semantic",
+          "relevance": {
+            "yoga-mat": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "yoga-mat",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "monitor-arm",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "robot-vacuum",
+              "score": 0.015625
+            },
+            {
+              "family": "camping-tent",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            9.99654200131772,
+            9.197167004458606,
+            15.846499998588115
+          ]
+        },
+        {
+          "id": "test-22",
+          "query": "a grippy padded surface for stretching on the floor",
+          "kind": "semantic",
+          "relevance": {
+            "yoga-mat": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "yoga-mat",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "foam-roller",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "vertical-mouse",
+              "score": 0.015625
+            },
+            {
+              "family": "laptop-stand",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            12.025834002997726,
+            7.135166997613851,
+            8.62675000098534
+          ]
+        },
+        {
+          "id": "test-22",
+          "query": "a grippy padded surface for stretching on the floor",
+          "kind": "semantic",
+          "relevance": {
+            "yoga-mat": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "yoga-mat",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.031746031746031744
+            },
+            {
+              "family": "monitor-arm",
+              "score": 0.030834914611005692
+            },
+            {
+              "family": "vertical-mouse",
+              "score": 0.030776515151515152
+            },
+            {
+              "family": "robot-vacuum",
+              "score": 0.030117753623188408
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            11.54425000277115,
+            10.496208000404295,
+            15.024667001853231
+          ]
+        },
+        {
+          "id": "test-22",
+          "query": "a grippy padded surface for stretching on the floor",
+          "kind": "semantic",
+          "relevance": {
+            "yoga-mat": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "yoga-mat",
+              "score": 3.514652967453003
+            },
+            {
+              "family": "vertical-mouse",
+              "score": -10.459720611572266
+            },
+            {
+              "family": "foam-roller",
+              "score": -10.69565200805664
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": -11.111083984375
+            },
+            {
+              "family": "resistance-bands",
+              "score": -11.161527633666992
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            90.74795799824642,
+            90.69308400648879,
+            119.24729200109141
+          ]
+        },
+        {
+          "id": "test-23",
+          "query": "resistence bands",
+          "kind": "typo",
+          "relevance": {
+            "resistance-bands": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "resistance-bands",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "power-bank",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "wifi-router",
+              "score": 0.015625
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            9.263291998649947,
+            6.702667000354268,
+            7.533415999205317
+          ]
+        },
+        {
+          "id": "test-23",
+          "query": "resistence bands",
+          "kind": "typo",
+          "relevance": {
+            "resistance-bands": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "resistance-bands",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "running-earbuds",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "wifi-router",
+              "score": 0.015625
+            },
+            {
+              "family": "headlamp",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            8.137958000588696,
+            6.104000000050291,
+            6.469375002779998
+          ]
+        },
+        {
+          "id": "test-23",
+          "query": "resistence bands",
+          "kind": "typo",
+          "relevance": {
+            "resistance-bands": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "resistance-bands",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "running-earbuds",
+              "score": 0.03128054740957967
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.03125763125763126
+            },
+            {
+              "family": "wifi-router",
+              "score": 0.03125
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.03057889822595705
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            13.280250001116656,
+            8.702041996002663,
+            9.995499996875878
+          ]
+        },
+        {
+          "id": "test-23",
+          "query": "resistence bands",
+          "kind": "typo",
+          "relevance": {
+            "resistance-bands": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "resistance-bands",
+              "score": 1.581298828125
+            },
+            {
+              "family": "wifi-router",
+              "score": -10.574060440063477
+            },
+            {
+              "family": "quiet-headphones",
+              "score": -10.965720176696777
+            },
+            {
+              "family": "portable-speaker",
+              "score": -10.982159614562988
+            },
+            {
+              "family": "running-earbuds",
+              "score": -11.05095100402832
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            101.87591700378107,
+            97.67299999657553,
+            100.26308299711673
+          ]
+        },
+        {
+          "id": "test-24",
+          "query": "massage tight calf muscles by rolling after a run",
+          "kind": "semantic",
+          "relevance": {
+            "foam-roller": 3
+          },
+          "mode": "lexical",
+          "returned": [
+            {
+              "family": "foam-roller",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "headlamp",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "yoga-mat",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "conference-microphone",
+              "score": 0.015625
+            },
+            {
+              "family": "portable-speaker",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            8.991833004984073,
+            6.992958995397203,
+            7.471875003830064
+          ]
+        },
+        {
+          "id": "test-24",
+          "query": "massage tight calf muscles by rolling after a run",
+          "kind": "semantic",
+          "relevance": {
+            "foam-roller": 3
+          },
+          "mode": "semantic",
+          "returned": [
+            {
+              "family": "foam-roller",
+              "score": 0.01639344262295082
+            },
+            {
+              "family": "yoga-mat",
+              "score": 0.016129032258064516
+            },
+            {
+              "family": "ergonomic-keyboard",
+              "score": 0.015873015873015872
+            },
+            {
+              "family": "resistance-bands",
+              "score": 0.015625
+            },
+            {
+              "family": "running-earbuds",
+              "score": 0.015384615384615385
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            8.073915996646974,
+            6.3882090034894645,
+            7.13783399987733
+          ]
+        },
+        {
+          "id": "test-24",
+          "query": "massage tight calf muscles by rolling after a run",
+          "kind": "semantic",
+          "relevance": {
+            "foam-roller": 3
+          },
+          "mode": "hybrid",
+          "returned": [
+            {
+              "family": "foam-roller",
+              "score": 0.03278688524590164
+            },
+            {
+              "family": "yoga-mat",
+              "score": 0.03200204813108039
+            },
+            {
+              "family": "headlamp",
+              "score": 0.030621785881252923
+            },
+            {
+              "family": "webcam",
+              "score": 0.029857397504456328
+            },
+            {
+              "family": "conference-microphone",
+              "score": 0.029709507042253523
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            11.992915999144316,
+            9.38579200010281,
+            9.493249999650288
+          ]
+        },
+        {
+          "id": "test-24",
+          "query": "massage tight calf muscles by rolling after a run",
+          "kind": "semantic",
+          "relevance": {
+            "foam-roller": 3
+          },
+          "mode": "rerank",
+          "returned": [
+            {
+              "family": "foam-roller",
+              "score": 5.217448711395264
+            },
+            {
+              "family": "yoga-mat",
+              "score": -11.190210342407227
+            },
+            {
+              "family": "headlamp",
+              "score": -11.27109146118164
+            },
+            {
+              "family": "portable-speaker",
+              "score": -11.272089958190918
+            },
+            {
+              "family": "blender",
+              "score": -11.284720420837402
+            }
+          ],
+          "metrics": {
+            "recall_at_5": 1.0,
+            "ndcg_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "latency_ms": [
+            130.93366700195475,
+            115.17649999586865,
+            114.8480420015403
+          ]
+        }
+      ]
+    }
+  }
+}
