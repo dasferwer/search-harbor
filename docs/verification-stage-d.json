@@ -1,0 +1,27 @@
+{
+  "checked_at_utc": "2026-10-02T20:44:30.184232+00:00",
+  "application_base_sha": "78de5127a901c09838933ceb378d976cd76721bc",
+  "scope": "Локальные проверки изменений этапа D; CI опубликованного коммита проверяется отдельно.",
+  "environment": {
+    "host": "macOS arm64",
+    "database": "PostgreSQL 17",
+    "compose": "5.4.0"
+  },
+  "pytest_passed": 70,
+  "ruff": "passed",
+  "format": "passed",
+  "scenario": {
+    "opensearch_outage": "catalog write persisted; search returned 503; cursor recovered",
+    "worker_crash": {
+      "cursor_before_kill": 3004,
+      "event_replayed": 3005,
+      "result": "passed"
+    },
+    "rebuild": {
+      "successful_searches": 16,
+      "errors": 0,
+      "updated_product_preserved": true,
+      "deleted_product_absent": true
+    }
+  }
+}
